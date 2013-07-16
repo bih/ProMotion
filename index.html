@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ProMotion by clearsightstudio</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ProMotion</h1>
+        <p>ProMotion is a RubyMotion gem that makes iPhone development less like Objective-C and more like Ruby.</p>
+
+        <p class="view"><a href="https://github.com/clearsightstudio/ProMotion">View the Project on GitHub <small>clearsightstudio/ProMotion</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/clearsightstudio/ProMotion/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/clearsightstudio/ProMotion/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/clearsightstudio/ProMotion">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="promotion--" class="anchor" href="#promotion--"><span class="octicon octicon-link"></span></a>ProMotion <a href="https://travis-ci.org/clearsightstudio/ProMotion"><img src="https://travis-ci.org/clearsightstudio/ProMotion.png" alt="Build Status"></a> <a href="https://codeclimate.com/github/clearsightstudio/ProMotion"><img src="https://codeclimate.com/github/clearsightstudio/ProMotion.png" alt="Code Climate"></a>
+</h1>
+
+<h2>
+<a name="a-new-way-to-easily-build-rubymotion-apps" class="anchor" href="#a-new-way-to-easily-build-rubymotion-apps"><span class="octicon octicon-link"></span></a>A new way to easily build RubyMotion apps.</h2>
+
+<p>ProMotion is a RubyMotion gem that makes iOS development more like Ruby and less like Objective-C.
+It introduces a clean, Ruby-style syntax for building screens that is easy to learn and remember and
+abstracts a ton of boilerplate UIViewController, UINavigationController, and other iOS code into a
+simple, Ruby-like DSL.</p>
+
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">AppDelegate</span> <span class="o">&lt;</span> <span class="ss">PM</span><span class="p">:</span><span class="ss">:Delegate</span>
+  <span class="k">def</span> <span class="nf">on_load</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+    <span class="nb">open</span> <span class="no">RootScreen</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">nav_bar</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">RootScreen</span> <span class="o">&lt;</span> <span class="ss">PM</span><span class="p">:</span><span class="ss">:Screen</span>
+  <span class="n">title</span> <span class="s2">"Root Screen"</span>
+
+  <span class="k">def</span> <span class="nf">push_new_screen</span>
+    <span class="nb">open</span> <span class="no">NewScreen</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">NewScreen</span> <span class="o">&lt;</span> <span class="ss">PM</span><span class="p">:</span><span class="ss">:TableScreen</span>
+  <span class="n">title</span> <span class="s2">"Table Screen"</span>
+
+  <span class="k">def</span> <span class="nf">table_data</span>
+    <span class="o">[</span><span class="p">{</span>
+      <span class="ss">cells</span><span class="p">:</span> <span class="o">[</span>
+        <span class="p">{</span> <span class="ss">title</span><span class="p">:</span> <span class="s2">"About this app"</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span> <span class="ss">:tapped_about</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="ss">title</span><span class="p">:</span> <span class="s2">"Log out"</span><span class="p">,</span> <span class="ss">action</span><span class="p">:</span> <span class="ss">:log_out</span> <span class="p">}</span>
+      <span class="o">]</span>
+    <span class="p">}</span><span class="o">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<table>
+<tr>
+<th>Screens</th>
+<th>Navigation Bars</th>
+<th>Tab Bars</th>
+</tr>
+<tr>
+<td><img src="https://f.cloud.github.com/assets/1479215/751058/486b6e1e-e4e7-11e2-9d1f-d9380a58f643.png" alt="ProMotion Screen"></td>
+<td><img src="https://f.cloud.github.com/assets/1479215/751076/e4762858-e4e7-11e2-8442-ac7c9ad142e6.png" alt="ProMotion Nav Bar"></td>
+<td><img src="https://f.cloud.github.com/assets/1479215/751128/76ebe320-e4e9-11e2-86ee-d81c4c1e92f2.png" alt="ProMotion Tabs"></td>
+</tr>
+</table><table>
+<tr>
+<th>Table Screens</th>
+<th>Grouped Tables</th>
+<th>Searchable</th>
+<th>Refreshable</th>
+</tr>
+<tr>
+<td><img src="https://f.cloud.github.com/assets/1479215/751067/8fe7631a-e4e7-11e2-84f1-6ae50ac4f8e8.png" alt="ProMotion TableScreen"></td>
+<td><img src="https://f.cloud.github.com/assets/1479215/751162/a805b9da-e4ea-11e2-9c39-0c65f8a8de77.png" alt="ProMotion Grouped Table Screens"></td>
+<td><img src="https://f.cloud.github.com/assets/1479215/707490/ba750216-de1d-11e2-9594-0880b12f8ffe.png" alt="Searchable"></td>
+<td><img src="https://f.cloud.github.com/assets/139261/472574/af268e52-b735-11e2-8b9b-a9245b421715.gif" alt="Refreshable"></td>
+</tr>
+</table><table>
+<tr>
+<th>iPad SplitScreens</th>
+<th>Map Screens</th>
+<th>Web Screens</th>
+</tr>
+<tr>
+<td><img src="https://f.cloud.github.com/assets/1479215/751188/13c3a7c6-e4ec-11e2-8c87-a94e0c07702b.png" alt="ProMotion SplitScreens"></td>
+<td><img src="https://f.cloud.github.com/assets/1479215/751217/dab20958-e4ed-11e2-9b3e-b42c0199d9e7.png" alt="MapScreen"></td>
+<td><img src="https://f.cloud.github.com/assets/1479215/751235/b6fe91ba-e4ee-11e2-8707-c74c7f833de3.png" alt="ProMotion WebScreen"></td>
+</tr>
+</table><h4>
+<a name="and-much-more" class="anchor" href="#and-much-more"><span class="octicon octicon-link"></span></a>...and much more.</h4>
+
+<h1>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h1>
+
+<p>Check out our new <a href="https://github.com/clearsightstudio/ProMotion/wiki/Getting-Started-Guide">Getting Started Guide</a> in the wiki!</p>
+
+<h1>
+<a name="whats-new" class="anchor" href="#whats-new"><span class="octicon octicon-link"></span></a>What's New?</h1>
+
+<h2>
+<a name="version-10" class="anchor" href="#version-10"><span class="octicon octicon-link"></span></a>Version 1.0</h2>
+
+<ul>
+<li>
+<strong>New Screen</strong> <a href="https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::MapScreen"><code>PM::MapScreen</code></a>
+</li>
+<li>
+<strong>New Screen</strong> <a href="https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::WebScreen"><code>PM::WebScreen</code></a>
+</li>
+<li>Added <a href="https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::TableScreen#indexable"><code>indexable</code></a> as a <code>PM::TableScreen</code> feature</li>
+<li>Added <code>PM::SplitViewController</code> and the ability to open a screen <code>in_detail:</code> or <code>in_master:</code>. <a href="https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::Screen#openscreen-args--">More info here.</a>
+</li>
+<li>Added <code>PM::TabBarController</code> and <code>PM::Tabs</code> and refactored the <code>open_tab_bar</code> code</li>
+<li>
+<strong>IMPORTANT:</strong> Changed <code>on_load</code> to fire more consistently. You are now encouraged to put your view setup code in here rather than <code>will_appear</code>.</li>
+<li>Many methods that used to require long UIKit constants now take short :symbols. Check documentation.</li>
+<li>Simpler <code>PM::Delegate</code> code, added <code>will_load(app, options)</code> and others. <a href="https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::Delegate">See the documentation.</a>
+</li>
+<li>
+<a href="https://github.com/clearsightstudio/ProMotion/wiki/Reference%3A-All-available-table_data-options">Added a few keys and improvements</a> to table_data</li>
+<li>Removed <code>PM::SectionedTableScreen</code> (<code>PM::TableScreen</code> is already a sectioned table)</li>
+<li>Removed any last UIKit monkeypatching. Everything is a subclass now. ProMotion is probably the least invasive RubyMotion gem in common use.</li>
+<li>Push Notification updates</li>
+<li>Renamed <code>PM::ViewHelper</code> to <code>PM::Styling</code> and <a href="https://github.com/clearsightstudio/ProMotion/wiki/API-Reference:-ProMotion::Screen#hex_colorstr">added some common helpers</a>
+</li>
+<li>Added <code>will_present</code>, <code>on_present</code>, <code>will_dismiss</code>, <code>on_dismiss</code> to screens</li>
+<li>Major internal refactors everywhere</li>
+<li>Lots of new unit &amp; functional tests</li>
+<li>Removed deprecations, cleaned up a lot of code</li>
+<li>Huge improvements to the <a href="https://github.com/clearsightstudio/ProMotion/wiki">wiki</a>
+</li>
+</ul><h1>
+<a name="tutorials" class="anchor" href="#tutorials"><span class="octicon octicon-link"></span></a>Tutorials</h1>
+
+<p>Shows how to make a basic app in ProMotion. Updated in May.</p>
+
+<p><a href="http://www.clearsightstudio.com/insights/ruby-motion-promotion-tutorial">http://www.clearsightstudio.com/insights/ruby-motion-promotion-tutorial</a></p>
+
+<h2>
+<a name="screencasts" class="anchor" href="#screencasts"><span class="octicon octicon-link"></span></a>Screencasts</h2>
+
+<p>Shows how to create a Youtube app that shows Portland Trailblazer highlights.</p>
+
+<p><a href="http://www.clearsightstudio.com/insights/tutorial-make-youtube-video-app-rubymotion-promotion/">http://www.clearsightstudio.com/insights/tutorial-make-youtube-video-app-rubymotion-promotion/</a></p>
+
+<h2>
+<a name="sample-apps" class="anchor" href="#sample-apps"><span class="octicon octicon-link"></span></a>Sample Apps</h2>
+
+<p>Here's a demo app that is used to test new functionality. You might have to change the Gemfile
+source to pull from Github.</p>
+
+<p><a href="https://github.com/jamonholmgren/promotion-demo">https://github.com/jamonholmgren/promotion-demo</a></p>
+
+<p>Here's a demo app showing some styling options.</p>
+
+<p><a href="https://github.com/jamonholmgren/promotion-styling">https://github.com/jamonholmgren/promotion-styling</a></p>
+
+<h1>
+<a name="api-reference" class="anchor" href="#api-reference"><span class="octicon octicon-link"></span></a>API Reference</h1>
+
+<p>We've created a comprehensive and always updated wiki with code examples, usage examples, and API reference.</p>
+
+<h3>
+<a name="promotion-api-reference" class="anchor" href="#promotion-api-reference"><span class="octicon octicon-link"></span></a><a href="https://github.com/clearsightstudio/ProMotion/wiki">ProMotion API Reference</a>
+</h3>
+
+<h1>
+<a name="help" class="anchor" href="#help"><span class="octicon octicon-link"></span></a>Help</h1>
+
+<p>If you need help, feel free to ping me on twitter <a href="http://twitter.com/jamonholmgren">@jamonholmgren</a>
+or open an issue on GitHub. Opening an issue is usually the best and we respond to those pretty quickly.</p>
+
+<h1>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h1>
+
+<p>I'm very open to ideas. Tweet me with your ideas or open a ticket (I don't mind!)
+and let's discuss. <strong>It's a good idea to run your idea by the committers before creating
+a pull request.</strong> We'll always consider your ideas carefully but not all ideas will be
+incorporated.</p>
+
+<h2>
+<a name="working-on-new-features" class="anchor" href="#working-on-new-features"><span class="octicon octicon-link"></span></a>Working on New Features</h2>
+
+<ol>
+<li>Clone the repos into <code>Your-Project/Vendor/ProMotion</code>
+</li>
+<li>Update your <code>Gemfile</code>to reference the project as <code>gem 'ProMotion', :path =&gt; "vendor/ProMotion/"</code>
+</li>
+<li>Run <code>bundle</code>
+</li>
+<li>Run <code>rake clean</code> and then <code>rake</code>
+</li>
+<li>Contribute!</li>
+</ol><h2>
+<a name="submitting-a-pull-request" class="anchor" href="#submitting-a-pull-request"><span class="octicon octicon-link"></span></a>Submitting a Pull Request</h2>
+
+<ol>
+<li>Fork the project</li>
+<li>Create a feature branch</li>
+<li>Code</li>
+<li>Update or create new specs ** NOTE: your PR is far more likely to be merged if you include comprehensive tests! **</li>
+<li>Make sure tests are passing by running <code>rake spec</code> <em>(you can run functional and unit specs separately with <code>rake spec:functional</code> and <code>rake spec:unit</code>)</em>
+</li>
+<li>Submit pull request</li>
+<li>Make a million little nitpicky changes that <a href="https://github.com/jamonholmgren" class="user-mention">@jamonholmgren</a> wants</li>
+<li>Merged, then fame, adoration, kudos everywhere</li>
+</ol><h2>
+<a name="primary-contributors" class="anchor" href="#primary-contributors"><span class="octicon octicon-link"></span></a>Primary Contributors</h2>
+
+<ul>
+<li>Jamon Holmgren: <a href="https://twitter.com/jamonholmgren">@jamonholmgren</a>
+</li>
+<li>Silas Matson: <a href="https://twitter.com/silasjmatson">@silasjmatson</a>
+</li>
+<li>Matt Brewer: <a href="https://twitter.com/macfanatic">@macfanatic</a>
+</li>
+<li>Mark Rickert: <a href="https://twitter.com/markrickert">@markrickert</a>
+</li>
+<li><a href="https://github.com/clearsightstudio/ProMotion/graphs/contributors">Many others</a></li>
+<li>Run <code>git shortlog -s -n -e</code> to see everyone who has contributed.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/clearsightstudio">clearsightstudio</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
